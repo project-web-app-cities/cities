@@ -2,8 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const freeStuffsSchema = new Schema({
   category: {
-    enum: [Museum, Restaurant, Bar, Club, Sport, Events, Transportation, Other],
-    required: [true, "Please select a category"],
+    enum: ['Museum', 'Restaurant', 'Bar', 'Club', 'Sport', 'Events', 'Transportation', 'Other'],
+    required: [true, "Please select a category"]
   },
   name: {
     type: String,

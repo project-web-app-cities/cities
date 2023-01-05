@@ -23,8 +23,7 @@ const userSchema = new Schema(
     picture: String,
     savedCities: Array
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+  {    
     timestamps: true
   }
 );
