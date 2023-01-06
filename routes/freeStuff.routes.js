@@ -59,17 +59,17 @@ router.post("/free-stuffs/create", (req, res, next) => {
 
 router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
 
-    let freestuffArr;
+    let freeStuffDetails;
   
     FreeStuff.find()
         .then( (freeStuffFromDB) => {
-            freestuffArr = freeStuffFromDB;
+            freeStuffDetails = freeStuffFromDB;
             
             return FreeStuff.findById(req.params.freestuffId)
         })
         .then((freeStuffDetails) => {
             const data = {
-                freestuffArr: freestuffArr,
+                freeStuffDetails: freeStuffDetails,
             }
   
             res.render("freestuff/freestuff-edit", data);
@@ -90,10 +90,11 @@ router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
    
     FreeStuff.findByIdAndUpdate(freestuffId, newDetails)
       .then(() => {
-        res.redirect(`/free-stuffs`);
+        res.redirect("/free-stuffs");
     })
       .catch(err => {
         console.log("Error updating freestuff...", err);
+        next()
       });
 });
   
