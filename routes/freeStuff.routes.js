@@ -80,5 +80,26 @@ router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
         });
   });
 
+  router.post('/free-stuffs/:freestuffId/edit', isLoggedIn, (req, res, next) => {
+    const freestuffId = req.params.bookId;
+    const newDetails = {
+        title: req.body.title,
+        category: req.body.category,
+        location: req.body.location,
+        description: req.body.description,
+    }
+   
+    Book.findByIdAndUpdate(freestuffId, newDetails)
+      .then(() => {
+        res.redirect(`/free-stuffs/${freestuffId}`);
+    })
+      .catch(err => {
+        console.log("Error updating freestuff...", err);
+      });
+});
+
+
+
+
 
 module.exports = router;
