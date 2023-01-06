@@ -57,4 +57,28 @@ router.post("/free-stuffs/create", (req, res, next) => {
   
 
 
+router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
+
+    let freestuffArr;
+  
+    FreeStuff.find()
+        .then( (freeStuffFromDB) => {
+            freestuffArr = freeStuffFromDB;
+            
+            return FreeStuff.findById(req.params.freestuffId)
+        })
+        .then((bookDetails) => {
+            const data = {
+                freestuffArr: freestuffArr,
+            }
+  
+            res.render("freestuff/freestuff-edit", data);
+        })
+        .catch(err => {
+            console.log("Error getting freestuff details from DB...", err);
+            next();
+        });
+  });
+
+
 module.exports = router;
