@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const City = require("../models/City.model");
@@ -7,8 +7,11 @@ const City = require("../models/City.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+const router = express.Router();
+
 /* GET city page */
 router.get("/cities", (req, res, next) => {
+
     City.find()
         .then(citiesFromDB => {
             res.render("cities/available-cities", { cities: citiesFromDB })
