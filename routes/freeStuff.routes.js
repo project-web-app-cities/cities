@@ -9,12 +9,12 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 const router = express.Router();
 
-/* GET city page */
+/* GET free stuffs list page */
 router.get("/free-stuffs", (req, res, next) => {
 
     FreeStuff.find()
         .then(freeStuffFromDB => {
-            res.render("freeStuff/freeStuff", { freestuff: freeStuffFromDB })
+            res.render("freeStuff/freeStuff-list", { freestuff: freeStuffFromDB })
         })
         .catch(err => {
             console.log("error getting free stuffs from DB", err);
@@ -22,13 +22,38 @@ router.get("/free-stuffs", (req, res, next) => {
         })
 });
 
-//GET access create new city form
-router.get("/freeStuff/create", (req, res, next) =>{
-    res.render('create-freeStuff');
-})
+//GET access create new free stuff form
+router.get("/free-stuffs/create", (req, res, next) => {
+    FreeStuff.find()
+        .then((freeStuffsArr) => {
+            res.render("freeStuff/create-freeStuff", { freeStuffsArr });
+        })
+        .catch(err => {
+            console.log("error getting free stuffs from DB", err);
+            next(err);
+        })
+});
 
-//POST create new city
-router.post("/cities")
+
+//CREATE: process form
+router.post("/free-stuffs/create", (req, res, next) => {
+
+    const freeStuffDetails = {
+        title: req.body.title,
+        category: req.body.category,
+        location: req.body.location,
+        description: req.body.description,
+    }
+
+    FreeStuff.create(freeStuffDetails)
+        .then(freeStuffDetails => {
+            res.redirect("/free-stuffs");
+        })
+        .catch(err => {
+            console.log("error creating new free stuff in DB", err);
+            next();
+        })
+});
   
 
 
