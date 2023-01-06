@@ -57,10 +57,10 @@ router.post("/login", (req, res, next) => {
                 //user does not exist
                 res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
                 return;
-            } else if (bcryptjs.compareSync(password, userFromDB.passwordHash)) {
+            } else if (bcrypt.compareSync(password, userFromDB.passwordHash)) {
                 //login sucessful
                 req.session.currentUser = userFromDB;
-                res.redirect("/user-profile");
+                res.redirect("/");
             } else {
                 //login failed
                 res.render('auth/login', { errorMessage: 'Incorrect credentials.' });
