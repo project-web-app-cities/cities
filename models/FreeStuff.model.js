@@ -14,7 +14,7 @@ const freeStuffSchema = new Schema({
   location: {
     type: String,
     trim: true,
-    // required: true
+    // //required: true
   },
   description: {
     type: String,

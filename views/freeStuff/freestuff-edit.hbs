@@ -1,0 +1,31 @@
+<h2>Change the free stuff located in
+  <textarea
+    name="cityName"
+    class="cityName"
+    cols="30"
+    rows="1"
+  >{{this.location}}</textarea></h2>
+
+<form action="/free-stuffs/create" method="post">
+
+  <label>
+    Category:
+    <select name="category">
+      <option value="Museum">Museum</option>
+      <option value="Restaurant">Restaurant</option>
+      <option value="Bar">Bar</option>
+      <option value="Club">Club</option>
+      <option value="Sport">Sport</option>
+      <option value="Events">Events</option>
+      <option value="Transportation">Transportation</option>
+      <option value="Other">Other</option>
+    </select>
+  </label>
+
+  <label>
+    Description:
+    <textarea name="description" cols="50" rows="6"> </textarea>
+  </label>
+
+  <button type="submit">Changed!</button>
+</form>
