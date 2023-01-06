@@ -96,9 +96,19 @@ router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
         console.log("Error updating freestuff...", err);
       });
 });
+  
+    //DELETE free stuff
+router.post("/free-stuffs/:freestuffId/delete", (req, res, next) => {
+    FreeStuff.findByIdAndDelete(req.params.freestuffId)
+        .then(() => {
+            res.redirect("/free-stuffs");
+        })
+        .catch(err => {
+            console.log("Error deleting free stuff...", err);
+            next();
+        });
 
-
-
+});
 
 
 module.exports = router;
