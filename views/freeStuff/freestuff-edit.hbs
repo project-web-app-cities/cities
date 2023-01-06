@@ -1,12 +1,14 @@
-<h2>Change the free stuff located in
+
+<form action="/free-stuffs/{{freeStuffDetails._id}}/edit" method="post">
+<h2>Add a free stuff to do in
   <textarea
     name="cityName"
     class="cityName"
     cols="30"
     rows="1"
-  >{{this.location}}</textarea></h2>
+  >{{freeStuffDetails.location}}</textarea></h2>
 
-<form action="/free-stuffs/create" method="post">
+
 
   <label>
     Category:

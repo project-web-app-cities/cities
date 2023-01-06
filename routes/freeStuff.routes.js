@@ -67,7 +67,7 @@ router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
             
             return FreeStuff.findById(req.params.freestuffId)
         })
-        .then((bookDetails) => {
+        .then((freeStuffDetails) => {
             const data = {
                 freestuffArr: freestuffArr,
             }
@@ -79,9 +79,8 @@ router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
             next();
         });
   });
-
-  router.post('/free-stuffs/:freestuffId/edit', isLoggedIn, (req, res, next) => {
-    const freestuffId = req.params.bookId;
+router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
+    const freestuffId = req.params.freestuffId;
     const newDetails = {
         title: req.body.title,
         category: req.body.category,
@@ -89,9 +88,9 @@ router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
         description: req.body.description,
     }
    
-    Book.findByIdAndUpdate(freestuffId, newDetails)
+    FreeStuff.findByIdAndUpdate(freestuffId, newDetails)
       .then(() => {
-        res.redirect(`/free-stuffs/${freestuffId}`);
+        res.redirect(`/free-stuffs`);
     })
       .catch(err => {
         console.log("Error updating freestuff...", err);
