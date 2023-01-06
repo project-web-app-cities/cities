@@ -61,7 +61,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({ username, email, passwordHash: hashedPassword });
     })
     .then((user) => {
       res.redirect("/auth/login");
@@ -120,7 +120,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
       bcrypt
-        .compare(password, user.password)
+        .compare(password, user.passwordHash)
         .then((isSamePassword) => {
           if (!isSamePassword) {
             res
@@ -132,7 +132,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           // Add the user object to the session object
           req.session.currentUser = user.toObject();
           // Remove the password field
-          delete req.session.currentUser.password;
+          delete req.session.currentUser.passwordHash;
 
           res.redirect("/");
         })
