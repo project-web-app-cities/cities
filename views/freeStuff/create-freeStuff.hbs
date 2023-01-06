@@ -1,14 +1,8 @@
 <h2>Add a free stuff to do in
-  <textarea
-    name="cityName"
-    class="cityName"
-    cols="30"
-    rows="1"
-  >{{this.location}}</textarea></h2>
+
 
 <form action="/free-stuffs/create" method="post">
-
-  <label>
+  <input type="text" name="location" />
     Category:
     <select name="category">
       <option value="Museum">Museum</option>

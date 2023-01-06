@@ -4,8 +4,12 @@
   <section>
     <h2>{{this.location}}</h2>
     <h2>{{this.category}}</h2>
+    <div>{{this.description}}</div>
     <div>
-        <a href="/free-stuffs/{{_id}}">More details</a>|
-      <a href="/free-stuffs/{{_id}}/edit">Edit</a></div>
+      <a href="/free-stuffs/{{_id}}/edit">Edit</a>|
+       <form action="/free-stuffs/{{_id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+      </div>
   </section>
 {{/each}}
