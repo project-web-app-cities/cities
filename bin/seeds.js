@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const FreeStuff = require('../models/FreeStuff.model');
 
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/library-project';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/myproject';
 
 mongoose
   .connect(MONGO_URI)
