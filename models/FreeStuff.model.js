@@ -23,12 +23,12 @@ const freeStuffSchema = new Schema({
   city: {
     type: String,
     trim: true,
-    // //required: true
+    required: true
   },
   country: {
     type: String,
     trim: true,
-    // //required: true
+    required: true
   },
   image: String,
 });

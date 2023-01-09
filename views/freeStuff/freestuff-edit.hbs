@@ -1,12 +1,8 @@
 
 <form action="/free-stuffs/{{freeStuffDetails._id}}/edit" method="post">
-<h2>Add a free stuff to do in
-  <textarea
-    name="cityName"
-    class="cityName"
-    cols="30"
-    rows="1"
-  >{{freeStuffDetails.location}}</textarea></h2>
+<h2>Edit your free stuff</h2>
+  <textarea name="city" class="city" cols="30" rows="1">{{freeStuffDetails.city}}</textarea>
+  <textarea name="country" class="country" cols="30" rows="1">{{freeStuffDetails.country}}</textarea></h2>
 
 
 
@@ -26,7 +22,7 @@
 
   <label>
     Description:
-    <textarea name="description" cols="50" rows="6"> </textarea>
+    <textarea name="description" class="description" cols="50" rows="6">{{freeStuffDetails.description}}</textarea>
   </label>
 
   <button type="submit">Changed!</button>

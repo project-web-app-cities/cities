@@ -21,7 +21,7 @@ const freeStuffs = [
     description: "Thursday nights free entrance at Ivy club, Australia's biggest nightclub",
     category: "Club",
     city: "Sydney",
-    country: Australia
+    country: "Australia"
   },
   {
     description: "Enjoy the (free) view from Bunkers El Carmel",
