@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 
 const router = require("express").Router();
@@ -80,7 +81,7 @@ router.get('/user-profile', (req, res) => {
 
 
 //LOGOUT
-router.post('/logout', (req, res, next) => {
+router.get('/logout', (req, res, next) => {
     req.session.destroy(err => {
         if (err) next(err);
         res.redirect('/');
