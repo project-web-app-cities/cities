@@ -6,6 +6,7 @@ const User = require("../models/User.model")
 const FreeStuff = require("../models/FreeStuff.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isCreator = require("../middleware/isCreator")
 
 const router = express.Router();
 
@@ -24,7 +25,7 @@ router.get("/free-stuffs", (req, res, next) => {
 });
 
 //GET access create new free stuff form
-router.get("/free-stuffs/create", (req, res, next) => {
+router.get("/free-stuffs/create", isLoggedIn, (req, res, next) => {
     User.find()
         .then((usersArray) => {
             res.render("freeStuff/create-freeStuff", { usersArray });
@@ -37,7 +38,7 @@ router.get("/free-stuffs/create", (req, res, next) => {
 
 
 //CREATE: process form
-router.post("/free-stuffs/create", (req, res, next) => {
+router.post("/free-stuffs/create", isLoggedIn, (req, res, next) => {
     const creator = {
 
     }
@@ -74,7 +75,7 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
         })
 });
 
-router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
+router.get("/free-stuffs/:freestuffId/edit", isLoggedIn, isCreator, (req, res, next) => {
 
     let freeStuffDetails;
   
@@ -96,7 +97,7 @@ router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
             next();
         });
   });
-router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
+router.post('/free-stuffs/:freestuffId/edit', isLoggedIn, isCreator, (req, res, next) => {
     const freestuffId = req.params.freestuffId;
     const newDetails = {
         description: req.body.description,
@@ -116,7 +117,7 @@ router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
 });
   
     //DELETE free stuff
-router.post("/free-stuffs/:freestuffId/delete", (req, res, next) => {
+router.post("/free-stuffs/:freestuffId/delete", isLoggedIn, isCreator, (req, res, next) => {
     FreeStuff.findByIdAndDelete(req.params.freestuffId)
         .then(() => {
             res.redirect("/free-stuffs");
