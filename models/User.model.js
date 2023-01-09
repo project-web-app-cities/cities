@@ -19,7 +19,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required.']
     },
-    posts: [{ type: Types.ObjectId, ref: 'FreeStuff' }]
+    posts: [{ type: Schema.Types.ObjectId, ref: 'FreeStuff' }]
   },
   {
     timestamps: true

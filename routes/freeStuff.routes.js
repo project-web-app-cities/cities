@@ -39,14 +39,16 @@ router.get("/free-stuffs/create", (req, res, next) => {
 router.post("/free-stuffs/create", (req, res, next) => {
 
     const freeStuffDetails = {
-        title: req.body.title,
-        category: req.body.category,
-        location: req.body.location,
         description: req.body.description,
+        category: req.body.category,
+        country: req.body.country,
+        city: req.body.city,
+        creatorId: req.body.creatorId
     }
 
     FreeStuff.create(freeStuffDetails)
         .then(freeStuffDetails => {
+            console.log(freeStuffDetails)
             res.redirect("/free-stuffs");
         })
         .catch(err => {
@@ -82,12 +84,12 @@ router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
 router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
     const freestuffId = req.params.freestuffId;
     const newDetails = {
-        title: req.body.title,
-        category: req.body.category,
-        location: req.body.location,
         description: req.body.description,
+        category: req.body.category,
+        country: req.body.country,
+        city: req.body.city
     }
-   
+  
     FreeStuff.findByIdAndUpdate(freestuffId, newDetails)
       .then(() => {
         res.redirect("/free-stuffs");

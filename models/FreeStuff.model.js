@@ -5,7 +5,6 @@ const freeStuffSchema = new Schema({
     type: String,
     required: [true, "Please add a description"],
   },
-
   category: {
     type: String,
     enum: [
@@ -23,13 +22,14 @@ const freeStuffSchema = new Schema({
   city: {
     type: String,
     trim: true,
-    required: true
   },
   country: {
     type: String,
     trim: true,
-    required: true
   },
+  creatorId:  {
+    type: Schema.Types.ObjectId,
+    ref: 'User'} ,
   image: String,
 });
 
