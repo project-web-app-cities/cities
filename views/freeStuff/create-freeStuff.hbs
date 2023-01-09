@@ -6,6 +6,7 @@
 <form action="/free-stuffs/create" method="POST">
   <input type="text" name="city">
   <input type="text" name="country">
+
     Category:
     <select name="category">
       <option value="Museum">Museum</option>
@@ -23,6 +24,6 @@
     Description:
     <textarea name="description" cols="50" rows="6"> </textarea>
   </label>
-
+  <p>Created by {{userDetails.name}}</p>
   <button type="submit">I'm done!</button>
 </form>

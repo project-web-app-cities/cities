@@ -2,7 +2,7 @@ const express = require("express");
 
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-//const City = require("../models/City.model");
+const User = require("../models/User.model")
 const FreeStuff = require("../models/FreeStuff.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
@@ -13,6 +13,7 @@ const router = express.Router();
 router.get("/free-stuffs", (req, res, next) => {
 
     FreeStuff.find()
+        .populate("creator")
         .then(freeStuffFromDB => {
             res.render("freeStuff/freeStuff-list", { freestuff: freeStuffFromDB })
         })
@@ -24,9 +25,9 @@ router.get("/free-stuffs", (req, res, next) => {
 
 //GET access create new free stuff form
 router.get("/free-stuffs/create", (req, res, next) => {
-    FreeStuff.find()
-        .then((freeStuffsArr) => {
-            res.render("freeStuff/create-freeStuff", { freeStuffsArr });
+    User.find()
+        .then((usersArray) => {
+            res.render("freeStuff/create-freeStuff", { usersArray });
         })
         .catch(err => {
             console.log("error getting free stuffs from DB", err);
@@ -37,13 +38,15 @@ router.get("/free-stuffs/create", (req, res, next) => {
 
 //CREATE: process form
 router.post("/free-stuffs/create", (req, res, next) => {
+    const creator = {
 
+    }
     const freeStuffDetails = {
         description: req.body.description,
         category: req.body.category,
         country: req.body.country,
         city: req.body.city,
-        creatorId: req.body.creatorId
+        creator: req.body.creator
     }
 
     FreeStuff.create(freeStuffDetails)
@@ -57,7 +60,19 @@ router.post("/free-stuffs/create", (req, res, next) => {
         })
 });
   
+router.get("/free-stuffs/:freestuffId", (req, res, next) => {
+    const id = req.params.freestuffId;
 
+    FreeStuff.findById(id)
+        .populate("creator")
+        .then(freeStuffDetails => {
+            res.render("freeStuff/freeStuff", freeStuffDetails);
+        })
+        .catch(err => {
+            console.log("error getting details from DB", err);
+            next(err);
+        })
+});
 
 router.get("/free-stuffs/:freestuffId/edit", (req, res, next) => {
 
@@ -87,7 +102,7 @@ router.post('/free-stuffs/:freestuffId/edit', (req, res, next) => {
         description: req.body.description,
         category: req.body.category,
         country: req.body.country,
-        city: req.body.city
+        city: req.body.city, 
     }
   
     FreeStuff.findByIdAndUpdate(freestuffId, newDetails)
