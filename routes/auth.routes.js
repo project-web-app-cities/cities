@@ -15,7 +15,7 @@ router.get("/signup", (req, res, next) => {
 //SIGNUP: process form
 router.post("/signup", (req, res, next) => {
 
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     bcrypt
         .genSalt(saltRounds)
@@ -24,6 +24,7 @@ router.post("/signup", (req, res, next) => {
         })
         .then((hash) => {
             const userDetails = {
+                name,
                 email,
                 passwordHash: hash
             }
@@ -55,15 +56,13 @@ router.post("/login", (req, res, next) => {
     User.findOne({ email: email })
         .then(userFromDB => {
             if (!userFromDB) {
-                //user does not exist
                 res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
                 return;
             } else if (bcrypt.compareSync(password, userFromDB.passwordHash)) {
-                //login sucessful
-                req.session.currentUser = userFromDB;
-                res.redirect("/");
+
+                req.session.loggedUser = userFromDB;
+                res.render('users/user-profile', { userInSession: req.session.loggedUser });
             } else {
-                //login failed
                 res.render('auth/login', { errorMessage: 'Incorrect credentials.' });
             }
         })
@@ -76,8 +75,8 @@ router.post("/login", (req, res, next) => {
 
 //User Profile
 router.get('/user-profile', (req, res) => {
-    res.render('users/user-profile', { userInSession: req.session.currentUser });
-});
+    res.render('users/user-profile', { userInSession: req.session.loggedUser });
+})
 
 
 //LOGOUT
