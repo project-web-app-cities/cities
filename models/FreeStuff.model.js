@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 
 const freeStuffSchema = new Schema({
   description: {
@@ -27,8 +27,8 @@ const freeStuffSchema = new Schema({
     type: String,
     trim: true,
   },
-  creatorId:  {
-    type: Schema.Types.ObjectId,
+  creator:  {
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'} ,
   image: String,
 });
