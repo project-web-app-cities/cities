@@ -6,7 +6,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Name is required.'],
       unique: true,
-      trim: true
+      trim: true,
     },
     email: {
       type: String,
@@ -18,7 +18,8 @@ const userSchema = new Schema(
     passwordHash: {
       type: String,
       required: [true, 'Password is required.']
-    }
+    },
+    posts: [{ type: Types.ObjectId, ref: 'FreeStuff' }]
   },
   {
     timestamps: true
