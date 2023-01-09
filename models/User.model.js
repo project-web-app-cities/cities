@@ -19,7 +19,6 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required.']
     },
-    posts: [{ type: Schema.Types.ObjectId, ref: 'FreeStuff' }]
   },
   {
     timestamps: true

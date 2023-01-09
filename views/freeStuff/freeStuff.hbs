@@ -1,0 +1,19 @@
+<section>
+    <h2>{{city}}, {{country}}</h2>
+    <p>
+        Created by: {{creator.name}} 
+    </p>
+    <p>
+        <strong>Description:</strong>
+        {{description}}
+    </p>
+
+    <p>
+        <form action="/free-stuffs/{{_id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+    </p>
+
+</section>
+
+<a href="/free-stuffs">Back</a>
