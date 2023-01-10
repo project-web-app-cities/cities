@@ -22,10 +22,12 @@ const freeStuffSchema = new Schema({
   city: {
     type: String,
     trim: true,
+    required: [true, "Please add a city"],
   },
   country: {
     type: String,
     trim: true,
+    required: [true, "Please add a country"],
   },
   creator:  {
     type: mongoose.Schema.Types.ObjectId,

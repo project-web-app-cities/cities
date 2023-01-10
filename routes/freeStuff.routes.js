@@ -48,6 +48,11 @@ router.post("/free-stuffs/create", isLoggedIn, (req, res, next) => {
         creator: req.session.loggedUser._id
     }
 
+    if (!freeStuffDetails.description || !freeStuffDetails.category || !freeStuffDetails.country || !freeStuffDetails.city) {
+        res.render('freeStuff/create-freeStuff', {errorMessage: 'All fields required'});
+        return;
+    }
+
     FreeStuff.create(freeStuffDetails)
         .then(freeStuffDetails => {
             console.log(freeStuffDetails)

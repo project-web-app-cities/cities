@@ -24,6 +24,9 @@
     Description:
     <textarea name="description" cols="50" rows="6"> </textarea>
   </label>
-  <p>Created by {{userDetails.name}}</p>
   <button type="submit">I'm done!</button>
+
+      {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
 </form>
