@@ -70,7 +70,36 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
     FreeStuff.findById(id)
         .populate("creator")
         .then(freeStuffDetails => {
+            console.log(freeStuffDetails)
             res.render("freeStuff/freeStuff", freeStuffDetails);
+        })
+        .catch(err => {
+            console.log("error getting details from DB", err);
+            next(err);
+        })
+});
+
+router.get("/free-stuffs/countries/:country", (req, res, next) => {
+    const country = req.params.country;
+
+    FreeStuff.find({country : country})
+        .then(selectedCountry => {
+            console.log(selectedCountry)
+            res.render("freeStuff/country-list", selectedCountry);
+        })
+        .catch(err => {
+            console.log("error getting details from DB", err);
+            next(err);
+        })
+});
+
+router.get("/free-stuffs/cities/:city", (req, res, next) => {
+    const city = req.params.city;
+
+    FreeStuff.find({city : city})
+        .then(selectedCity => {
+            console.log(selectedCity)
+            res.render("freeStuff/city-filter", selectedCity);
         })
         .catch(err => {
             console.log("error getting details from DB", err);

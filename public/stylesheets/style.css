@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(226, 218, 218);
 }
 
 a.navbar-brand {
@@ -224,4 +225,39 @@ p.helloMsg {
 
 h3 {
   font-weight: 500;
+}
+
+
+
+
+#freestuff-list { 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 48px;
+}
+.freestuff-card {
+  width: 30%;
+  height: 320px;
+  border: black 2px solid;
+  margin: 1%;
+  overflow: scroll;
+  border-radius: 2%;
+  padding: 2%;
+}
+.freestuff-card p {
+  font-size: 20px;
+  height: auto;
+  margin: 4px;
+  width: 95%;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#create-button {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
 }

@@ -31,15 +31,15 @@
           <a class="nav-link" href="/free-stuffs" class="nav-style">Browse all the free stuffs</a>
         </li>
             {{#if userDetails}}
-              <p class="nav-style" "loginlinks"><p class="helloMsg">Hello, </p> <a class="username" href="/user-profile">{{userDetails.username}}</a></p> 
+              <p class="nav-style" "loginlinks"><p class="helloMsg">Hello, </p> <a class="username" href="/user-profile">{{userDetails.name}}</a></p> 
                 <form action="/logout" method="POST" class="nav-style">
                   <button class="logout">Logout</button>
                </form>
             {{else}}
             <div class="loginlinks"> 
               <a href="/signup">Register</a>
-               <a href="/login">Login</a>
-               </div>
+              <a href="/login">Login</a>
+            </div>
             {{/if}}
          </div>
           </a>
