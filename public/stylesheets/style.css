@@ -203,11 +203,14 @@ p.helloMsg {
 .freestuff-card {
   width: 30%;
   height: 320px;
-  border: black 2px solid;
   margin: 1%;
   overflow: scroll;
   border-radius: 2%;
   padding: 2%;
+  border-radius: 40px;
+  background: linear-gradient(145deg, #cbc4c4, #f2e9e9);
+  box-shadow:  31px 31px 62px #c0b9b9,
+             -31px -31px 62px #fffbfb;
 }
 .freestuff-card p {
   font-size: 20px;
@@ -215,6 +218,7 @@ p.helloMsg {
   margin: 4px;
   width: 95%;
 }
+
 .options {
   display: flex;
   flex-direction: column;
@@ -222,6 +226,7 @@ p.helloMsg {
 }
 #create-button {
     text-align: center;
-    display: inline-block;
-    width: 100%;
+    text-decoration: none;
+    margin-left: 40%;
+
 }
