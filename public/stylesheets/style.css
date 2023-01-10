@@ -2,7 +2,16 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a.navbar-brand {
+  padding-left: 20px;
+}
+
+a.nav-link {
+  font-size: 20px;
+  margin-left: 30px;
 }
 
 a {
@@ -12,28 +21,42 @@ a {
   padding-left: 20px;
   padding-top: 50px;
   text-underline-offset: 5px;
+  margin-bottom: 2px;
+}
+
+p {
+  font-size: 30px;
+  margin-left: 60px;
+  margin-right: 30px;
 }
 
 .container-fluid {
-  background: #a1dd70;
-  padding: 20px 10px;
-  border-radius: 20px;
+  background: #7edd30;
+  padding: 20px 20px;
+  margin-top: 0;
+}
+
+.navbar {
+  --bs-navbar-padding-y: 0;
 }
 
 .navbar-brand {
-  font-size: 40px;
+  font-size: 45px;
   margin-left: 2vw;
+  color: #1b1b20;
 }
 
 .nav-item {
   font-size: 20px;
   text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
 .nav-link {
   display: inline-block;
   color: black;
   text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
 .navbar-nav {
@@ -41,8 +64,32 @@ a {
 }
 
 .loginlinks {
-  margin-top: 8px;
   margin-left: 20vw;
+}
+
+p.helloMsg {
+  padding-top: 10px;
+  padding-right: 0%;
+}
+
+.username {
+  padding-left: 0;
+  padding-bottom: 55px;
+}
+
+.logout {
+  border: none;
+  background-color: #7edd30;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  padding-top: 10px;
+  padding-right: 20px;
+  font-size: 20px;
+}
+
+.navbar-expand-lg .navbar-nav {
+  align-items: center;
 }
 
 /* Search bar */
@@ -137,4 +184,8 @@ a {
 }
 .logo {
   width: 15%;
+}
+
+.cards {
+  border: solid black;
 }

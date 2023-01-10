@@ -87,7 +87,7 @@ router.post("/login", (req, res, next) => {
         return;
       } else if (bcrypt.compareSync(password, userFromDB.passwordHash)) {
         req.session.loggedUser = userFromDB;
-        res.render("users/user-profile", {
+        res.render("index", {
           userInSession: req.session.loggedUser,
         });
       } else {
