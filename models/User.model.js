@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
@@ -19,6 +20,9 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required.']
     },
+    favorites: [{ 
+      type: Schema.Types.ObjectId,
+      ref: "FreeStuff"}]        
   },
   {
     timestamps: true
