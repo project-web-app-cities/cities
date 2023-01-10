@@ -22,13 +22,19 @@ a {
   padding-left: 20px;
   padding-top: 50px;
   text-underline-offset: 5px;
-  margin-bottom: 2px;
+
 }
 
 p {
-  font-size: 30px;
+  font-size: 22px;
   margin-left: 60px;
   margin-right: 30px;
+  padding-top: 20px;
+  margin-top: 5px;
+}
+
+p.helloMsg {
+  margin-right: 10px;
 }
 
 .container-fluid {
@@ -58,6 +64,7 @@ p {
   color: black;
   text-decoration: underline;
   text-underline-offset: 5px;
+  line-height: 1.6;
 }
 
 .navbar-nav {
@@ -189,6 +196,35 @@ p.helloMsg {
 
 .cards {
   border: solid black;
+}
+
+
+/* USER PROFILE PAGE STYLING */
+
+.user-profile-page-title {
+  padding: 40px;
+}
+
+.user-profile-page-button {
+  padding: 40px;
+}
+
+.favorites .contributions {
+  padding: 40px 0;
+  margin-left: 20px;
+}
+
+.carousel {
+  margin: 20px 5vw;
+  height: auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 500;
 }
 
 
