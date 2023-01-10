@@ -105,6 +105,21 @@ router.get("/user-profile", isLoggedIn, (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.loggedUser });
 });
 
+router.post("/user-profile", isLoggedIn, (req, res, next) => {
+    
+    const favorites = req.params.favorites.favorites;
+    console.log(favorites)
+
+    User.find({ favorites : favorites})
+
+        //.populate("city")
+        .then(() => res.send("users/user-profile", favorites))
+        .catch((error) => {
+            console.log("Error trying to add to favorites", error);
+            next(error);
+          });
+})
+
 //LOGOUT
 router.post("/logout", (req, res, next) => {
   req.session.destroy((err) => {
