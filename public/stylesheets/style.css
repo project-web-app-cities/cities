@@ -1,3 +1,7 @@
+html {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   padding: 0;
@@ -191,7 +195,8 @@ p.helloMsg {
   z-index: auto;
 }
 .logo {
-  width: 15%;
+  width: 18%;
+  margin-top: 15px;
 }
 
 .cards {
@@ -289,4 +294,9 @@ h3 {
     width: 45%;
   }
   
+}
+
+footer p {
+  margin-top: 0;
+  padding-bottom: 30px;
 }
