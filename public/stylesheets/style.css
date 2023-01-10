@@ -266,3 +266,18 @@ h3 {
     margin-left: 40%;
 
 }
+
+
+@media (max-width: 550px) {
+  .freestuff-card {
+    width: 95%;
+  }
+  
+}
+
+@media (min-width: 550px) and (max-width: 900px) {
+  .freestuff-card {
+    width: 45%;
+  }
+  
+}
