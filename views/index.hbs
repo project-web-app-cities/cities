@@ -7,6 +7,13 @@
   </div>
 </div>
 
+<label> Find a country:
+        <select name="country">
+            {{#each FreeStuff}}
+            <option value="{{freeStuffDetails.country}}">{{freeStuffDetails.country}}</option>
+            {{/each}}
+        </select>
+    </label>
 <section class="cards-shower">
   <div class="grid text-center" "cards">
   <div class="g-col-6 g-col-md-4">
