@@ -1,4 +1,3 @@
-const User = require("../models/User.model")
 const FreeStuff = require("../models/FreeStuff.model");
 
 module.exports = (req, res, next) => {
