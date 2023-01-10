@@ -267,7 +267,16 @@ h3 {
 
 }
 
+#footer {
+  background-color: #7edd30;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
 
+.linkedin-img {
+  width: 20px;
+}
 @media (max-width: 550px) {
   .freestuff-card {
     width: 95%;
