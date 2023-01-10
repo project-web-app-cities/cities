@@ -300,3 +300,16 @@ footer p {
   margin-top: 0;
   padding-bottom: 30px;
 }
+
+.carouselImg {
+  height: 80%;
+}
+
+.myCarousel {
+  margin: 0 13%;
+}
+
+ul li {
+  list-style-type: none;
+  margin-bottom: 8px;
+}
