@@ -39,15 +39,13 @@ router.get("/free-stuffs/create", isLoggedIn, (req, res, next) => {
 
 //CREATE: process form
 router.post("/free-stuffs/create", isLoggedIn, (req, res, next) => {
-    const creator = {
 
-    }
     const freeStuffDetails = {
         description: req.body.description,
         category: req.body.category,
         country: req.body.country,
         city: req.body.city,
-        creator: req.body.creator
+        creator: req.session.loggedUser._id
     }
 
     FreeStuff.create(freeStuffDetails)
