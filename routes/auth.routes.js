@@ -18,7 +18,7 @@ router.post("/signup", (req, res, next) => {
   if (!name || !email || !password) {
     res.render("auth/signup", {
       errorMessage:
-        "Sorry, you need a name, an email and an user name to register.",
+        "Sorry, you need a username, an email and a password to register.",
     });
     return;
   }
