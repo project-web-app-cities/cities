@@ -1,17 +1,19 @@
-<section>
+<section class="freestuff-card moreDetails">
   <h2>{{city}}, {{country}}</h2>
   <p>
     <strong>Description:</strong>
     {{description}}
   </p>
-
   <p>
-    <a href="/free-stuffs/{{_id}}/edit">Edit</a>|
+    <a href="/free-stuffs/{{_id}}/edit">Edit</a>
     <form action="/free-stuffs/{{_id}}/delete" method="POST">
-      <button>Delete</button>
+      <button class="deleteBtn">Delete</button>
     </form>
   </p>
-
 </section>
 
-<a href="/free-stuffs">Back</a>
+   {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+  {{/if}}
+
+<a href="/free-stuffs" class="backBtn">Back</a>
