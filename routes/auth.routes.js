@@ -13,9 +13,9 @@ router.get("/signup", (req, res, next) => {
 
 //SIGNUP: process form
 router.post("/signup", (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { username, email, password } = req.body;
 
-  if (!name || !email || !password) {
+  if (!username || !email || !password) {
     res.render("auth/signup", {
       errorMessage:
         "Sorry, you need a username, an email and a password to register.",
@@ -46,7 +46,7 @@ router.post("/signup", (req, res, next) => {
         })
         .then((hash) => {
           const userDetails = {
-            name,
+            username,
             email,
             passwordHash: hash,
           };

@@ -11,7 +11,8 @@ body {
 }
 
 a.navbar-brand {
-  padding-left: 20px;
+  padding-left: 16vw;
+  padding-top: 40px;
 }
 
 a.nav-link {
@@ -19,11 +20,14 @@ a.nav-link {
   margin-left: 30px;
 }
 
+.navbar-expand-lg .navbar-nav {
+  margin-top: 20px;
+}
+
 a {
   color: black;
   text-decoration: underline;
   font-size: 20px;
-  padding-left: 20px;
   padding-top: 50px;
   text-underline-offset: 5px;
 
@@ -39,12 +43,14 @@ p {
 
 p.helloMsg {
   margin-right: 10px;
+  margin-left: 0;
 }
 
 .container-fluid {
   background: #7edd30;
-  padding: 20px 20px;
+  padding: 0px 20px;
   margin-top: 0;
+  position: relative;
 }
 
 .navbar {
@@ -53,7 +59,6 @@ p.helloMsg {
 
 .navbar-brand {
   font-size: 45px;
-  margin-left: 2vw;
   color: #1b1b20;
 }
 
@@ -195,8 +200,10 @@ p.helloMsg {
   z-index: auto;
 }
 .logo {
-  width: 18%;
-  margin-top: 15px;
+  width: 14%;
+  margin-top: 60px;
+  position: absolute;
+  z-index: 10;
 }
 
 .cards {
@@ -282,11 +289,38 @@ h3 {
 .linkedin-img {
   width: 20px;
 }
+
 @media (max-width: 550px) {
   .freestuff-card {
     width: 95%;
   }
-  
+  .hidden-mobile {
+    display: none;
+  }
+  .navbar-toggler {
+    margin-left: 42%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .nav-link.active{
+    margin-left: 0;
+  }
+
+  a.nav-link {
+    margin: 0;
+  }
+  .navbar-nav {
+    margin: 0;
+    padding: 0;
+  }
+  .username {
+    padding: 0px;
+}
+
+a {
+  padding: 0;
+}
+
 }
 
 @media (min-width: 550px) and (max-width: 900px) {
@@ -298,7 +332,12 @@ h3 {
 
 footer p {
   margin-top: 0;
-  padding-bottom: 30px;
+  font-size: medium;
+  margin-left: 45px;
+}
+
+footer a {
+  margin-left: 0;
 }
 
 .carouselImg {
@@ -306,10 +345,18 @@ footer p {
 }
 
 .myCarousel {
-  margin: 0 13%;
+  margin: 0 15%;
 }
 
 ul li {
   list-style-type: none;
   margin-bottom: 8px;
+  margin-left: 0;
+}
+
+.slogan {
+  font-style: italic;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 10px;
 }

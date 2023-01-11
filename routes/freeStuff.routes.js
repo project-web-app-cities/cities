@@ -93,13 +93,15 @@ router.get("/free-stuffs/countries/:country", (req, res, next) => {
         })
 });
 
+//Filter cities
+
 router.get("/free-stuffs/cities/:city", (req, res, next) => {
     const city = req.params.city;
 
     FreeStuff.find({city : city})
         .then(selectedCity => {
             console.log(selectedCity)
-            res.render("freeStuff/city-filter", selectedCity);
+            res.render("freeStuff/city-filter", {fileteredCity: selectedCity});
         })
         .catch(err => {
             console.log("error getting details from DB", err);

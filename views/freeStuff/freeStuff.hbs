@@ -1,18 +1,16 @@
 <section>
-    <h2>{{city}}, {{country}}</h2>
-    <p>
-        Created by: {{creator.name}} 
-    </p>
-    <p>
-        <strong>Description:</strong>
-        {{description}}
-    </p>
+  <h2>{{city}}, {{country}}</h2>
+  <p>
+    <strong>Description:</strong>
+    {{description}}
+  </p>
 
-    <p>
-        <form action="/free-stuffs/{{_id}}/delete" method="POST">
-            <button>Delete</button>
-        </form>
-    </p>
+  <p>
+    <a href="/free-stuffs/{{_id}}/edit">Edit</a>|
+    <form action="/free-stuffs/{{_id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+  </p>
 
 </section>
 
