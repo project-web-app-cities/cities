@@ -1,11 +1,12 @@
-<div class="container">
-  <div class="searchInput">
-    <input type="text" placeholder="Search a city..">
-    <div class="resultBox">
-    </div>
-    <div class="icon"><i class="fas fa-search"></i></div>
-  </div>
-</div>
+<form class="searchBar" action="/free-stuffs" method="GET">
+  <input
+    class="bar"
+    type="text"
+    placeholder="Search a city..."
+    name="cityName"
+  />
+  <input type="submit" value="search">
+</form>
 
 <a id="create-button" href="/free-stuffs/create">Add a new free stuff!</a>
 <section id="freestuff-list">

@@ -1,8 +1,13 @@
 <h2 class="slogan">Find all the free stuff to do in your area!</h2>
 
-<form class="searchBar">
-  <input id="search" type="text" class="input" placeholder="Search a city..." />
-
+<form class="searchBar" action="/cities/search" method="GET">
+  <input
+    class="bar"
+    type="text"
+    placeholder="Search a city..."
+    name="cityName"
+  />
+  <input type="submit" value="search">
 </form>
 
 <div id="carouselExample" class="carousel slide myCarousel">

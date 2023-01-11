@@ -80,35 +80,36 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
         })
 });
 
-router.get("/free-stuffs/countries/:country", (req, res, next) => {
-    const country = req.params.country;
-
-    FreeStuff.find({country : country})
-        .then(selectedCountry => {
-            console.log(selectedCountry)
-            res.render("freeStuff/country-list", selectedCountry);
-        })
-        .catch(err => {
-            console.log("error getting details from DB", err);
-            next(err);
-        })
-});
-
 //Filter cities
 
-router.get("/free-stuffs/cities/:city", (req, res, next) => {
-    const city = req.params.city;
+// router.get("/free-stuffs/cities/:city", (req, res, next) => {
+//     const city = req.params.city;
 
-    FreeStuff.find({city : city})
-        .then(selectedCity => {
-            console.log(selectedCity)
-            res.render("freeStuff/city-filter", {fileteredCity: selectedCity});
+//     FreeStuff.find({city : city})
+//         .then(selectedCity => {
+//             console.log(selectedCity)
+//             res.render("freeStuff/city-filter", {fileteredCity: selectedCity});
+//         })
+//         .catch(err => {
+//             console.log("error getting details from DB", err);
+//             next(err);
+//         })
+// });
+
+router.get('/free-stuffs', (req, res) => {
+    if(req.query.cityName) {
+        console.log('cityName', req.query.cityName)
+        FreeStuff.find({ city: { $regex: '.*' + req.query.cityName + '.*', $option: "i"}}, function(error, city) {
+            if(error) {
+                console.log('error getting selected city');
+                res.render('freestuff/freeStuff-list', {errorMessage: 'No cities matching your research'})
+            } else {
+                let cardsFiltered = city;
+                res.render('freestuff/freeStuff-list', cardsFiltered)
+            }
         })
-        .catch(err => {
-            console.log("error getting details from DB", err);
-            next(err);
-        })
-});
+    }
+})
 
 router.get("/free-stuffs/:freestuffId/edit", isLoggedIn, isCreator, (req, res, next) => {
 
