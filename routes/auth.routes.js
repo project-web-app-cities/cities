@@ -30,7 +30,7 @@ router.post("/signup", (req, res, next) => {
       });
       return;
     } else {
-        const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
         if (!regex.test(password)) {
           res
             .status(400)
