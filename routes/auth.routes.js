@@ -26,7 +26,7 @@ router.post("/signup", (req, res, next) => {
   User.findOne({ email: email }).then((userFromDB) => {
     if (userFromDB) {
       res.render("auth/signup", {
-        errorMessage: "This mail is already registered. Try another one.",
+        errorMessage: "This email is already registered. Try another one.",
       });
       return;
     } else {
@@ -87,9 +87,7 @@ router.post("/login", (req, res, next) => {
         return;
       } else if (bcrypt.compareSync(password, userFromDB.passwordHash)) {
         req.session.loggedUser = userFromDB;
-        res.render("index", {
-          userInSession: req.session.loggedUser,
-        });
+        res.redirect("/");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect credentials." });
       }

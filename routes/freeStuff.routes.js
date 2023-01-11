@@ -68,10 +68,11 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
     const id = req.params.freestuffId;
 
     FreeStuff.findById(id)
-        .populate("creator")
         .then(freeStuffDetails => {
             console.log(freeStuffDetails)
-            res.render("freeStuff/freeStuff", freeStuffDetails);
+            const isOwner = req.session.loggedUser._id === freeStuffDetails.creator.toString()
+
+            res.render("freeStuff/freeStuff", {freeStuffDetails, isOwner});
         })
         .catch(err => {
             console.log("error getting details from DB", err);

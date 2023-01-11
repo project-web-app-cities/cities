@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<a id="create-button" href="/free-stuffs/create">Add a new Free Stuff!!!</a>
+<a id="create-button" href="/free-stuffs/create">Add a new free stuff!</a>
 <section id="freestuff-list">
 {{#each freestuff}}
   <div class="freestuff-card">
@@ -15,7 +15,7 @@
     <h4>{{this.category}}</h4>
     <p>{{this.description}}</p>
     <div class="options">
-      <a class= "freestuff-button" href="/free-stuffs/{{_id}}">Know more</a>
+      <a class= "freestuff-button" href="/free-stuffs/{{_id}}">More Details</a>
 
 
       <form action="/user-profile" method="POST">
