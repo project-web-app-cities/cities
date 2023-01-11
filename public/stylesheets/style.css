@@ -260,6 +260,9 @@ h3 {
   box-shadow:  31px 31px 62px #c0b9b9,
              -31px -31px 62px #fffbfb;
 }
+.freestuff-card::-webkit-scrollbar {
+  display: none;
+}
 .freestuff-card p {
   font-size: 20px;
   height: auto;
