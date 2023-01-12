@@ -106,8 +106,6 @@ router.get("/user-profile", isLoggedIn, (req, res) => {
 router.post("/user-profile", isLoggedIn, (req, res, next) => {
     
     const favorites = req.params.favorites.favorites;
-    console.log(favorites)
-
     User.find({ favorites : favorites})
 
         //.populate("city")
