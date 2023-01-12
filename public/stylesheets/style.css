@@ -35,13 +35,13 @@ a {
   text-underline-offset: 5px;
 }
 
- p {
+p {
   font-size: 22px;
   margin-left: 60px;
   margin-right: 30px;
   padding-top: 20px;
   margin-top: 5px;
-} 
+}
 
 p.helloMsg {
   margin-right: 10px;
@@ -93,7 +93,7 @@ p.helloMsg {
 }
 
 .username {
-  margin-bottom: 5px ;
+  margin-bottom: 5px;
 }
 
 .logout {
@@ -112,91 +112,40 @@ p.helloMsg {
   align-items: center;
 }
 
+.actionBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actionBtns p {
+  padding-right: 20px;
+}
+
 /* Search bar */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-::selection{
-  color: #fff;
-  background: #664AFF;
-}
-
-.container{
-  max-width: 450px;
-  margin: 50px auto;
-}
-
-.container .searchInput{
-  background: #fff;
-  width: 100%;
-  border-radius: 5px;
-  position: relative;
-  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
-}
-
-.searchInput input{
-  height: 55px;
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  padding: 0 60px 0 20px;
-  font-size: 18px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-}
-
-.searchInput.active input{
-  border-radius: 5px 5px 0 0;
-}
-
-.searchInput .resultBox{
-  padding: 0;
-  opacity: 0;
-  pointer-events: none;
-  max-height: 280px;
-  overflow-y: auto;
-}
-
-.searchInput.active .resultBox{
-  padding: 10px 8px;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.resultBox li{
-  list-style: none;
-  padding: 8px 12px;
-  display: none;
-  width: 100%;
-  cursor: default;
-  border-radius: 3px;
-}
-
-.searchInput.active .resultBox li{
-  display: block;
-}
-.resultBox li:hover{
-  background: #efefef;
-}
-
-.searchInput .icon{
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 55px;
-  width: 55px;
+.searchBar {
   text-align: center;
-  line-height: 55px;
-  font-size: 20px;
-  color: #644bff;
-  cursor: pointer;
+  margin: 20px 0;
+}
+
+.bar {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+input.button {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  color: grey;
 }
 
 .cards-shower {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
 }
 .city-container {
   background-image: url("../images/london.jpg");
@@ -212,7 +161,6 @@ p.helloMsg {
 .cards {
   border: solid black;
 }
-
 
 /* USER PROFILE PAGE STYLING */
 
@@ -242,10 +190,7 @@ h3 {
   font-weight: 500;
 }
 
-
-
-
-#freestuff-list { 
+#freestuff-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -260,8 +205,7 @@ h3 {
   padding: 2%;
   border-radius: 40px;
   background: linear-gradient(145deg, #cbc4c4, #f2e9e9);
-  box-shadow:  31px 31px 62px #c0b9b9,
-             -31px -31px 62px #fffbfb;
+  box-shadow: 31px 31px 62px #c0b9b9, -31px -31px 62px #fffbfb;
 }
 .freestuff-card::-webkit-scrollbar {
   display: none;
@@ -301,7 +245,6 @@ h3 {
   text-underline-offset: 5px;
   border: none;
   background: transparent;
-  margin-left: 8%;
 }
 
 #footer {
@@ -320,14 +263,15 @@ h3 {
     width: 95%;
   }
   .hidden-mobile {
-    display: none;
+    position: static;
+    width: 100px;
   }
   .navbar-toggler {
     margin-left: 42%;
     margin-top: 5px;
     margin-bottom: 10px;
   }
-  .nav-link.active{
+  .nav-link.active {
     margin-left: 0;
   }
 
@@ -340,22 +284,44 @@ h3 {
   }
   .username {
     padding: 0px;
-}
+  }
 
-a {
-  padding: 0;
-}
+  a {
+    padding: 0;
+  }
+  .actionBtns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  #create-button {
+    margin-top: 20px;
+  }
+
+  input.button {
+    display: none;
+  }
+  a.navbar-brand {
+    padding-left: 0; 
+    padding-top: 60px;
+  }
 }
 
 @media (min-width: 550px) and (max-width: 900px) {
   .freestuff-card {
     width: 45%;
   }
-  
+  .actionBtns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
- footer p {
+footer p {
   margin-top: 0;
   font-size: medium;
   margin-left: 30px;
@@ -385,11 +351,6 @@ footer a {
   padding-bottom: 100px;
 }
 
-.searchBar {
-text-align: center;
-margin: 20px 0;
-}
-
 .loginlinksOut {
   display: inline;
 }
@@ -399,6 +360,3 @@ margin: 20px 0;
 .logInSignUp {
   margin: 60px 0px 100px 60px;
 }
-
-
-

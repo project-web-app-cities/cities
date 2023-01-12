@@ -1,3 +1,8 @@
+<div class="actionBtns">
+<a id="create-button" href="/free-stuffs/create">Add new free stuff</a>
+
+<p>or</p>
+
 <form class="searchBar" action="/free-stuffs" method="GET">
   <input
     class="bar"
@@ -5,10 +10,10 @@
     placeholder="Search a city..."
     name="city"
   />
-  <input type="submit" value="search">
+  <input class="button" type="submit" value="→">
 </form>
+</div>
 
-<a id="create-button" href="/free-stuffs/create">Add a new free stuff!</a>
 <section id="freestuff-list">
 {{#each freestuff}}
   <div class="freestuff-card">
