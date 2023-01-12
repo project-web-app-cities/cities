@@ -305,7 +305,7 @@ const freeStuffs = [
 ];
 
 mongoose
-  .connect("mongodb://127.0.0.1/myproject")
+  .connect(MONGO_URI)
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -317,7 +317,6 @@ mongoose
 
     return FreeStuff.create(freeStuffs);
   })
-  .catch((err) => console.error("Error... ", err))
   .then((freeStuffFromDB) => {
     console.log("Number of freestuffs created: ", freeStuffFromDB.length);
 
