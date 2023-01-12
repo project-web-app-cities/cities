@@ -228,6 +228,21 @@ h3 {
   width: 97%;
   height: fit-content;
   overflow: hidden;
+  text-underline-offset: 5px;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+.favoriteBtn {
+  border: none;
+  background: transparent;
+  margin-top: 15px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  font-size: 20px;
 }
 
 .deleteBtn {
@@ -267,10 +282,13 @@ h3 {
 
 @media (max-width: 550px) {
   * {
-    overflow: hidden;
+    overflow-x: hidden;
   }
   .freestuff-card {
     width: 95%;
+  }
+  .freestuff-card h3 {
+    padding: 15px 0 0 15px;
   }
   .hidden-mobile {
     position: static;
@@ -321,10 +339,13 @@ h3 {
 
 @media (min-width: 550px) and (max-width: 900px) {
   * {
-    overflow: hidden;
+    overflow-x: hidden;
   }
   .freestuff-card {
     width: 45%;
+  }
+  .freestuff-card h3 {
+    padding: 15px 0 0 15px;
   }
   .actionBtns {
     display: flex;
