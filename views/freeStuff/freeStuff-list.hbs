@@ -19,12 +19,15 @@
   <div class="freestuff-card">
     <h3>{{this.city}}, {{this.country}}</h3>
     <h4>{{this.category}}</h4>
-    <p>{{this.description}}</p>
+    <div class="description">
+          <p>{{this.description}}</p>
+    </div>
+
     <div class="options">
       <a class= "freestuff-button" href="/free-stuffs/{{_id}}">More Details</a>
 
 
-      <form action="/user-profile" method="POST">
+      <form action="/user-profile/favorites" method="POST">
         <button id="favoriteBtn">Add to favorites</button>
       </form>
 

@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
+const FreeStuff = require("../models/FreeStuff.model");
 
 const router = require("express").Router();
 
@@ -115,6 +116,27 @@ router.post("/user-profile", isLoggedIn, (req, res, next) => {
             next(error);
           });
 })
+
+router.get("/user-profile/favorites", isLoggedIn, (req, res) => {
+  const userFavorites = req.session.loggedUser.favorites;
+  res.render("freeStuff/freestuff-favorites", { userData : userFavorites });
+});
+
+router.post("/user-profile/favorites", isLoggedIn, (req, res, next) => {
+  const userFavorites = req.session.loggedUser.favorites;
+  const favoriteObjectId = req.session.loggedUser.
+
+  User.find()
+    .populate("FreeStuff")
+    .then(res.send(favoriteObjectId))
+  console.log(favoriteObjectId)
+  console.log(userFavorites.unshift())
+  
+
+})
+
+
+
 
 //LOGOUT
 router.post("/logout", (req, res, next) => {

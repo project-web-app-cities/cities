@@ -207,7 +207,14 @@ h3 {
   background: linear-gradient(145deg, #cbc4c4, #f2e9e9);
   box-shadow: 31px 31px 62px #c0b9b9, -31px -31px 62px #fffbfb;
 }
+.description {
+  height: 96px;
+  overflow: scroll;
+}
 .freestuff-card::-webkit-scrollbar {
+  display: none;
+}
+.description::-webkit-scrollbar {
   display: none;
 }
 .freestuff-card p {
