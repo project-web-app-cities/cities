@@ -259,6 +259,9 @@ h3 {
 }
 
 @media (max-width: 550px) {
+  * {
+    overflow: hidden;
+  }
   .freestuff-card {
     width: 95%;
   }
@@ -310,6 +313,9 @@ h3 {
 }
 
 @media (min-width: 550px) and (max-width: 900px) {
+  * {
+    overflow: hidden;
+  }
   .freestuff-card {
     width: 45%;
   }
@@ -359,4 +365,22 @@ footer a {
 
 .logInSignUp {
   margin: 60px 0px 100px 60px;
+}
+
+/* Create / update form pages */
+
+.forms {
+  padding: 30px 30px;
+  font-size: 30px;
+}
+
+.submitBtn {
+  border: solid;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-left: 38vw;
+}
+
+textarea {
+  vertical-align: top;
 }

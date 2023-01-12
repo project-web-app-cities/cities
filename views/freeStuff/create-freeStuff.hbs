@@ -1,12 +1,15 @@
-
+<div class="forms">
 <form action="/free-stuffs/create" method="post">
 <h2>Add a free stuff to do in
 
 
 <form action="/free-stuffs/create" method="POST">
-  <input type="text" name="city">
-  <input type="text" name="country">
+  <input type="text" name="city" placeholder="City">
+  <input type="text" name="country" placeholder="Country">
+  </h2>
 
+  <br>
+  <label>
     Category:
     <select name="category">
       <option value="Museum">Museum</option>
@@ -20,13 +23,21 @@
     </select>
   </label>
 
+  <br>
+  <br>
+
   <label>
     Description:
     <textarea name="description" cols="50" rows="6"> </textarea>
   </label>
-  <button type="submit">I'm done!</button>
+
+  <br>
+  <br>
+
+  <button type="submit" class="submitBtn">I'm done!</button>
 
       {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
 </form>
+</div>
