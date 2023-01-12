@@ -77,7 +77,7 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
 
     FreeStuff.findById(id)
         .then(freeStuffDetails => {
-            const isOwner = req.session.loggedUser._id === freeStuffDetails.creator.toString()
+            const isOwner = req.session?.loggedUser?._id === freeStuffDetails.creator.toString()
 
             res.render("freeStuff/freeStuff", {freeStuffDetails, isOwner});
         })
