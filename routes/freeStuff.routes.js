@@ -64,7 +64,6 @@ router.post("/free-stuffs/create", isLoggedIn, (req, res, next) => {
 
     FreeStuff.create(freeStuffDetails)
         .then(freeStuffDetails => {
-            console.log(freeStuffDetails)
             res.redirect("/free-stuffs");
         })
         .catch(err => {
@@ -78,7 +77,6 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
 
     FreeStuff.findById(id)
         .then(freeStuffDetails => {
-            console.log(freeStuffDetails)
             const isOwner = req.session.loggedUser._id === freeStuffDetails.creator.toString()
 
             res.render("freeStuff/freeStuff", {freeStuffDetails, isOwner});
@@ -119,7 +117,7 @@ router.get("/free-stuffs/:freestuffId/edit", isLoggedIn, isCreator, (req, res, n
                 freeStuffDetails: freeStuffDetails,
             }
   
-            res.render("freestuff/freestuff-edit", data);
+            res.render("freeStuff/freestuff-edit", data);
         })
         .catch(err => {
             console.log("Error getting freestuff details from DB...", err);
