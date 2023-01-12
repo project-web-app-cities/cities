@@ -214,7 +214,15 @@ h3 {
   border-radius: 40px;
   background: linear-gradient(145deg, #cbc4c4, #f2e9e9);
   box-shadow: 31px 31px 62px #c0b9b9, -31px -31px 62px #fffbfb;
+  height: 100%;
+  overflow: hidden;
 }
+
+.freestuff-card p {
+  height: 100%;
+  overflow: hidden;
+}
+
 .description {
   height: 96px;
   overflow: scroll;
