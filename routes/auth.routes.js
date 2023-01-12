@@ -31,7 +31,7 @@ router.post("/signup", (req, res, next) => {
       });
       return;
     } else {
-        const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         if (!regex.test(password)) {
           res
             .status(400)
@@ -122,18 +122,6 @@ router.get("/user-profile/favorites", isLoggedIn, (req, res) => {
   res.render("freeStuff/freestuff-favorites", { userData : userFavorites });
 });
 
-router.post("/user-profile/favorites", isLoggedIn, (req, res, next) => {
-  const userFavorites = req.session.loggedUser.favorites;
-  const favoriteObjectId = req.session.loggedUser.
-
-  User.find()
-    .populate("FreeStuff")
-    .then(res.send(favoriteObjectId))
-  console.log(favoriteObjectId)
-  console.log(userFavorites.unshift())
-  
-
-})
 
 
 
