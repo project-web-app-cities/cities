@@ -89,21 +89,6 @@ router.get("/free-stuffs/:freestuffId", (req, res, next) => {
         })
 });
 
-//Filter cities
-
-router.get("/free-stuffs", (req, res, next) => {
-    const cityName = req.query.city;
-
-    FreeStuff.find({city : cityName})
-        .then(selectedCity => {
-            res.render("freeStuff/city-filter", {fileteredCity: selectedCity});
-        })
-        .catch(err => {
-            console.log("error getting details from DB", err);
-            next(err);
-        })
-});
-
 router.get("/free-stuffs/:freestuffId/edit", isLoggedIn, isCreator, (req, res, next) => {
 
     let freeStuffDetails;
