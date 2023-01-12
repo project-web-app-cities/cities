@@ -13,7 +13,15 @@ const router = express.Router();
 /* GET free stuffs list page */
 router.get("/free-stuffs", (req, res, next) => {
 
-    FreeStuff.find()
+    let city = req.query.city;
+
+    let filter = {}
+    
+    if (city) {
+        filter = { city : { $eq: city }}
+    }
+
+    FreeStuff.find(filter)
         .populate("creator")
         .then(freeStuffFromDB => {
             res.render("freeStuff/freeStuff-list", { freestuff: freeStuffFromDB })
@@ -22,6 +30,7 @@ router.get("/free-stuffs", (req, res, next) => {
             console.log("error getting free stuffs from DB", err);
             next(err);
         })
+
 });
 
 //GET access create new free stuff form
