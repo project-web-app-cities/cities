@@ -1,11 +1,11 @@
-{{#each cityFiltered}}
+{{#each fileteredCity}}
 
   <section>
-    <h2>{{freeStuffDetails.city}}, {{this.country}}</h2>
+    <h2>{{this.city}}, {{this.country}}</h2>
     <h3>{{this.category}}</h3>
     <div>{{this.description}}</div>
     <div>
-      <a href="/free-stuffs/{{_id}}">Know more</a>
+      <a href="/free-stuffs/{{_id}}">More details</a>
       </div>
   </section>
 {{/each}}

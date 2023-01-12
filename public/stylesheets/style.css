@@ -386,9 +386,8 @@ footer a {
 }
 
 .searchBar {
-  margin-left: 41.5vw;
-  margin-top: 30px;
-  padding: 10px 20px;
+text-align: center;
+margin: 20px 0;
 }
 
 .loginlinksOut {
