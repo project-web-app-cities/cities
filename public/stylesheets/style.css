@@ -164,6 +164,10 @@ input.button {
 
 /* USER PROFILE PAGE STYLING */
 
+.profile {
+  padding: 20px 40px;
+}
+
 .user-profile-page-title {
   padding: 40px;
 }
@@ -175,6 +179,10 @@ input.button {
 .favorites .contributions {
   padding: 40px 0;
   margin-left: 20px;
+}
+
+.profile footer {
+  margin: 50px 0;
 }
 
 .carousel {
@@ -293,6 +301,7 @@ h3 {
   .hidden-mobile {
     position: static;
     width: 100px;
+    margin-top: 30px;
   }
   .navbar-toggler {
     margin-left: 42%;
@@ -333,7 +342,13 @@ h3 {
   }
   a.navbar-brand {
     padding-left: 0; 
-    padding-top: 60px;
+    margin-top: 30px;
+    font-size: 30px;
+    padding-top: 0;
+  }
+  .navbar-toggler {
+    margin-top: 15px;
+    margin-bottom: 20px;
   }
 }
 
