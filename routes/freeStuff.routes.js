@@ -14,14 +14,14 @@ const router = express.Router();
 router.get("/free-stuffs", (req, res, next) => {
 
     let city = req.query.city;
-
+    let mySort = { createdAt : -1 }
     let filter = {}
     
     if (city) {
         filter = { city : { $eq: city }}
     }
 
-    FreeStuff.find(filter)
+    FreeStuff.find(filter).sort(mySort)
         .populate("creator")
         .then(freeStuffFromDB => {
             res.render("freeStuff/freeStuff-list", { freestuff: freeStuffFromDB })
