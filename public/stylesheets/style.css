@@ -218,14 +218,9 @@ h3 {
   overflow: hidden;
 }
 
-.freestuff-card p {
-  height: 100%;
-  overflow: hidden;
-}
-
 .description {
   height: 96px;
-  overflow: scroll;
+  overflow: hidden;
 }
 .freestuff-card::-webkit-scrollbar {
   display: none;
@@ -349,7 +344,7 @@ h3 {
     display: none;
   }
   a.navbar-brand {
-    padding-left: 0; 
+    padding-left: 0;
     margin-top: 30px;
     font-size: 30px;
     padding-top: 0;
