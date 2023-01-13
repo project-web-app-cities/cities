@@ -1,17 +1,22 @@
 <div class="profile">
-
 <h2 class="user-profile-page-title">Welcome, {{userDetails.username}} !</h2>
 <section>
   <h3 class="favorites">Your favorites</h3>
- 
-</section>
-<br>
-<section>
-    <h3 class="contributions">Your contributions</h3>
-
+ <section id="freestuff-list">
+{{#each userDetails.favorites}}
+  <div class="freestuff-card">
+    <h3>{{this.city}}, {{this.country}}</h3>
+    <h4>{{this.category}}</h4>
+    <div class="description">
+          <p>{{this.description}}</p>
+    </div>
+    <div class="options">
+      <a class= "freestuff-button" href="/free-stuffs/{{_id}}">More Details</a>
+    </div>
+  </div>
+{{/each}}
 </section>
 <footer>
   <a href="/" class="user-profile-page-button">Main page</a>
 </footer>
-
 </div>

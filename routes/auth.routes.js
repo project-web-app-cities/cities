@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const FreeStuff = require("../models/FreeStuff.model");
+const { Model } = require("mongoose");
 
 const router = require("express").Router();
 
@@ -104,27 +105,23 @@ router.get("/user-profile", isLoggedIn, (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.loggedUser });
 });
 
-router.post("/user-profile", isLoggedIn, (req, res, next) => {
-    
-    const favorites = req.params.favorites.favorites;
-    User.find({ favorites : favorites})
 
-        //.populate("city")
-        .then(() => res.send("users/user-profile", favorites))
-        .catch((error) => {
-            console.log("Error trying to add to favorites", error);
-            next(error);
-          });
-})
+//add to favorites
+router.post("/favorites/:freestuffId", isLoggedIn, (req, res, next) => {
+  const freestuffId = req.params.freestuffId;
+  const userId = req.session.loggedUser._id;
 
-router.get("/user-profile/favorites", isLoggedIn, (req, res) => {
-  const userFavorites = req.session.loggedUser.favorites;
-  res.render("freeStuff/freestuff-favorites", { userData : userFavorites });
+  User.findByIdAndUpdate(userId, { $addToSet: { favorites: freestuffId } }, { new:true }).select('-passwordHash')
+    .populate("favorites")
+    .then((updatedUser) => {
+      req.session.loggedUser = updatedUser.toObject()
+      res.redirect("/free-stuffs");
+    })
+    .catch((err) => {
+      console.log("error getting favorites from DB", err);
+      next(err);
+    });
 });
-
-
-
-
 
 //LOGOUT
 router.post("/logout", (req, res, next) => {
